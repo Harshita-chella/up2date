@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./CSS/dash.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel = "icon" href = "./pictures/U2D (1).png" type = "image/x-icon">
+</head>
+<body>
+  
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="dash.html" class="logo">
+          <img src="./pictures/U2D (1).png" width="500" height="500">
+          <span class="nav-item">Admin</span>
+        </a></li>
+        <br>
+        <br>
+
+        <li><a href="dash.html">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+
+        <li><a href="syllabus.html">
+          <i class="fas fa-book"></i>
+          <span class="nav-item">Syllabus</span>
+        </a></li>
+
+        <li><a href="events.html">
+          <i class="fas fa-calendar"></i>
+          <span class="nav-item">Events</span>
+        </a></li>
+
+        <li><a href="todo.html">
+          <!-- <i class="fas fa-list"></i> -->
+          <span class="nav-item"><a href="C:\Users\91630\OneDrive\Desktop\to-do list\todo.html">To-Do List</a></span>
+        </a></li>
+
+        <li><a href="time.html">
+          <i class="fas fa-clock"></i>
+          <span class="nav-item">Time Table</span>
+        </a></li>
+
+        <li><a href="Login.html" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log Out</span>
+        </a></li>
+
+      </ul>
+    </nav>
+
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Faculty</h1>
+        
+        <div class="time">
+          
+          <span class="hms"></span>
+          <span class="ampm"></span>
+          
+          <span class="date"></span>
+        </div>
+        <script>
+          function updateTime() {
+            var dateInfo = new Date();
+
+          /* time */
+           var hr,
+               _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+                sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+              ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
+
+              // replace 0 with 12 at midnight, subtract 12 from hour if 13–23
+            if (dateInfo.getHours() == 0) {
+             hr = 12;
+             } else if (dateInfo.getHours() > 12) {
+             hr = dateInfo.getHours() - 12;
+             } else {
+             hr = dateInfo.getHours();
+             }
+
+              var currentTime = hr + ":" + _min + ":" + sec;
+
+             // print time
+            document.getElementsByClassName("hms")[0].innerHTML = currentTime;
+            document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+
+  /* date */
+  var dow = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    day = dateInfo.getDate();
+
+  // store date
+  var currentDate = dow[dateInfo.getDay()] + ", " + month[dateInfo.getMonth()] + " " + day;
+
+  document.getElementsByClassName("date")[0].innerHTML = currentDate;
+};
+
+updateTime();
+setInterval(function() {
+  updateTime()
+}, 1000);
+        </script>
+        </div>
+      <div class="users">
+        <div class="card">
+          <img src="./pictures/pic.png">
+          <br>
+          <h4>Dinesh Reddy</h4>
+          <div class="per">
+            <br>
+            <table>
+              <tr>
+                <td>Head Of Dept</td>
+              </tr>
+            </table>
+          </div>
+          <button>Contact</button>
+        </div>
+        <div class="card">
+          <img src="./pictures/pic.png">
+          <br>
+          <h4>Sunayana</h4>
+          <div class="per">
+            <br>
+            <table>
+              <tr>
+                <td>Class Coordinator</td>
+              </tr>
+            </table>
+          </div>
+          <button>Contact</button>
+        </div>
+        <div class="card">
+          <img src="./pictures/pic.png">
+          <br>
+          <h4>Yogendra</h4>
+          <div class="per">
+            <br>
+            <table>
+              <tr>
+                <td>Boy Class Representive</td>
+              </tr>
+            </table>
+          </div>
+          <button>Contact</button>
+        </div>
+        <div class="card">
+            <img src="./pictures/pic.png">
+            <br>
+            <h4>Noshitha</h4>
+            <div class="per">
+              <br>
+              <table>
+                <tr>
+                  <td>Girl Class Representive</td>
+                </tr>
+              </table>
+            </div>
+            <button>Contact</button>
+          </div>
+          </div>
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <h2>Section - 2</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Period</th>
+                <th>Course</th>
+                <th>Faculty</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Classwork</th>
+                <th>Homework</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>9:00AM</td>
+                <td>9:50PM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>9:50AM</td>
+                <td>10:40AM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>11:00AM</td>
+                <td>11:50AM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>04</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>11:50AM</td>
+                <td>12:40PM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr >
+                <td>05</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>1:30PM</td>
+                <td>2:20PM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr >
+                <td>06</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>2:20PM</td>
+                <td>3:10PM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr> 
+              <tr >
+                <td>07</td>
+                <td>Software Engineering</td>
+                <td>Narsimha Rao</td>
+                <td>3:20PM</td>
+                <td>4:10PM</td>
+                <td><button>View</button></td>
+                <td><button>View</button></td>
+              </tr> 
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>
